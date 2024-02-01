@@ -10,6 +10,16 @@ class HomePage extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Colors.white,
         ),
+        child: Center(
+          child: Column(
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text('Start'),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
