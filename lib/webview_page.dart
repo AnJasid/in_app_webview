@@ -30,7 +30,7 @@ class _WebViewPageState extends State<WebViewPage> {
           children: [
             InAppWebView(
               initialUrlRequest: URLRequest(
-                url: WebUri(''),
+                url: WebUri('https://cricketfunfacts.online/'),
               ),
               onWebViewCreated: (InAppWebViewController controller) {
                 inAppWebViewController = controller;
@@ -42,13 +42,32 @@ class _WebViewPageState extends State<WebViewPage> {
                 });
               },
             ),
-            _progress < 1
-                ? Container(
-                    child: LinearProgressIndicator(
-                      value: _progress,
-                    ),
-                  )
-                : const SizedBox(),
+            _progress < 1 ? LoadingScreen() : const SizedBox(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class LoadingScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xff082540),
+      child: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // CircularProgressIndicator(),
+            SizedBox(height: 8),
+            Text(
+              'Loading...',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+              ),
+            ),
           ],
         ),
       ),
